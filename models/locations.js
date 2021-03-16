@@ -15,25 +15,9 @@ const locationSchema = new Schema({
         type: String,
         required: true
     },
-    contact: {
+    id: {
         type: String,
         required: true
-    },
-    capacity: {
-        type: Number,
-        required: true
-    },
-    visitorIn: {
-        type: Number,
-        required: true
-    },
-    visitorOut: {
-        type: Number,
-        required: true
-    },
-    description: {
-        type: String,
-        default: ''
     }
 }, {
     timestamps: true

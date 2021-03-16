@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const promoSchema = new Schema({
+const itemSchema = new Schema({
     locationId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Location'
     },
     name: {
         type: String,
+        required: true,
+        unique: true
+    },
+    quantity: {
+        type: Number,
         required: true,
         unique: true
     },
