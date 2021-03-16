@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+require('mongoose-currency').loadType(mongoose);
+var Currency = mongoose.Types.Currency;
 
 const itemSchema = new Schema({
     locationId: {
@@ -11,10 +13,13 @@ const itemSchema = new Schema({
         required: true,
         unique: true
     },
+    price: {
+        type: Currency,
+        required: true
+    },
     quantity: {
         type: Number,
-        required: true,
-        unique: true
+        required: true
     },
     image: {
         type: String,
@@ -24,6 +29,6 @@ const itemSchema = new Schema({
     timestamps: true
 });
 
-var Promos = mongoose.model('Promo', promoSchema);
+var Items = mongoose.model('Item', itemSchema);
 
-module.exports = Promos;
+module.exports = Items;
