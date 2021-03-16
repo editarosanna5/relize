@@ -1,0 +1,11 @@
+db.promos.insert({ name: "burger-king-promo", image:"promoburgerking.jpg" , locationId: ""})
+
+db.promos.insert({ name: "pizza-hut-promo", image:"promopizzahut.jpg" , locationId: ""})
+
+db.promos.insert({ name: "star-bucks-promo", image:"promostarbucks.jpg" , locationId: ""})
+
+db.promos.insert({ name: "mcdonalds-promo", image:"promomcd.jpg" , locationId: ""})
+
+db.promos.insert({ name: "gramedia-promo", image:"promogramedia.jpg" , locationId: ""})
+
+db.promos.insert({ name: "chatime-promo", image:"promochatime.jpg" , locationId: ""})

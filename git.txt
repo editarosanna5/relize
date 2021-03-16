@@ -1,0 +1,53 @@
+Git basics
+
+A. Set directory as Git repository:
+     1. go to directory
+        command: cd { PATH }
+     2. initialize directory as Git repository
+        command: git init
+
+B. Clone remote Git repository
+     1. go to directory
+     2. clone remote Git repository
+        command: git clone { Remote Git URL }
+        example: git clone https://github.com/editarosanna5/newlink
+
+B. Upload local Git repository to online Git hosting service
+     1. Directory to upload MUST be Git repository, i.e.:
+          a. cloned from remote repository
+
+        OR
+
+          b. locally initialized repository
+             command: git init
+     2. 
+          a. for cloned repository:
+               1. go to directory
+               2. add changes
+                  command: git add { PATH }
+                  example: git add .
+               3. commit changes
+                  command: git commit -m "{ MESSAGE }"
+                  example: git commit -m "test"
+               4. push to remote repository
+		  command: git push { Remote Git URL }
+		  example: git push https://github.com/editarosanna5/newlink
+	       5.
+                  a. if remote repository updated after last pull
+                       1. pull changes
+  		          command: git pull { Remote Git URL }
+		          example: git pull https://github.com/editarosanna5/newlink
+                       2. push changes
+  		          command: git pull { Remote Git URL }
+		          example: git pull https://github.com/editarosanna5/newlink
+          b. for locally initialized repository
+               1. prepare remote Git repository
+               2. copy newly made Git repository URL
+               3. do steps 1-5 of 2.a.
+
+C. Pulling remote Git repository
+     1. this repository must be cloned beforehand
+     2. go to previously cloned directory
+     3. pull changes
+        command: git pull { Remote Git URL }
+        example: git pull https://github.com/editarosanna5/newlink

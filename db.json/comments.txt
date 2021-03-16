@@ -1,0 +1,1 @@
+db.comments.insert({ rating: "5", comment: "Test 10", locationId: "5f7cae2e3f086674f6bbba19", author: "Dita" })
