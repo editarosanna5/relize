@@ -4,50 +4,33 @@ const mongoose = require('mongoose');
 var authenticate = require('../authenticate');
 const cors = require('./cors');
 
-const Comments = require('../models/comments');
+const Promos = require('../models/promos');
 
-const commentRouter = express.Router();
+const promoRouter = express.Router();
 
-commentRouter.use(bodyParser.json());
+promoRouter.use(bodyParser.json());
 
-commentRouter.route('/')
+promoRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req, res, next) => {
-    Comments.find({})
-    .then((comments) => {
+    Promos.find({})
+    .then((promos) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(comments);
+        res.json(promos);
     }, (err) => next(err))
     .catch((err) => next(err));
 })
 .post(cors.corsWithOptions, (req, res, next) => {
-    if (req.body != null) {
-        Comments.create(req.body)
-        .then((comment) => {
-            Comments.findById(comment._id)
-            .populate('locationId')
-            .then((comment) => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.json(comment);
-            })
-        }, (err) => next(err))
-        .catch((err) => next(err));
-    }
-    else {
-        err = new Error('Comment not found in request body');
-        err.status = 404;
-        return next(err);
-    }
-
+    res.statusCode = 403;
+    res.end('POST method not supported');
 })
 .put(cors.corsWithOptions, (req, res, next) => {
     res.statusCode = 403;
     res.end('PUT method not supported');
 })
 .delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
-    Comments.remove({})
+    Promos.remove({})
     .then((resp) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -56,16 +39,16 @@ commentRouter.route('/')
     .catch((err) => next(err));
 });
 
-commentRouter.route(':/commentId')
+promoRouter.route(':/promoId')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req,res,next) => {
-    Comments.findById(req.params.commentId)
-    .then((comment) => {
+    Promos.findById(req.params.promoId)
+    .then((promo) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(comment);
+        res.json(promo);
     }, (err) => next(err))
     .catch((err) => next (err));
 });
 
-module.exports = commentRouter;
+module.exports = itemsRouter;

@@ -10,12 +10,10 @@ const WebSocket = require('ws');
 var authenticate = require('./authenticate');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/homeRouter');
-var aboutRouter = require('./routes/aboutRouter');
-var howtouseRouter = require('./routes/howtouseRouter');
-var commentRouter = require('./routes/commentRouter');
-var promoRouter = require('./routes/promoRouter');
+var itemsRouter = require('./routes/itemsRouter');
+var paymentRouter = require('./routes/paymentRouter');
+var qrRouter = require('./routes/qrRouter');
 var config = require('./config');
 
 const mongoose = require('mongoose');
