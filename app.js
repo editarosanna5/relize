@@ -11,7 +11,7 @@ var authenticate = require('./authenticate');
 
 var indexRouter = require('./routes/index');
 var homeRouter = require('./routes/homeRouter');
-var itemsRouter = require('./routes/itemsRouter');
+var itemsRouter = require('./routes/itemRouter');
 var paymentRouter = require('./routes/paymentRouter');
 var qrRouter = require('./routes/qrRouter');
 var config = require('./config');
